@@ -9,7 +9,7 @@
     "display":"standalone",
     "icons":[
         {
-            "src":"./img/film.png",
+            "src":"../img/film.png",
             "sizes":"512x512"
         }
     ]
