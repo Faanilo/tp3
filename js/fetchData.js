@@ -150,7 +150,7 @@ document.getElementById('next-page').addEventListener('click', function () {
     currentPage++;
     displayMoviesByPage(allMovies, 'all-movie-container', currentPage);
 });
-
+//test
 document.getElementById('prev-page').addEventListener('click', function () {
     if (currentPage > 1) {
         currentPage--;
