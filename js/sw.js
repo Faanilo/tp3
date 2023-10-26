@@ -59,7 +59,7 @@ const cacheFirst = async ({ request, fallbackUrl }) => {
     }
 };
 
-function searchAllMovies(query) {
+/*function searchAllMovies(query) {
     const url = `${BaseUrl}/3/search/movie?api_key=${apiKey}&query=${query}`;
     return fetch(url)
         .then((response) => response.json())
@@ -78,4 +78,4 @@ function searchAllMoviesAndUpdate(query) {
     searchAllMovies(query).then((searchResults) => {
         displayMovies(searchResults, 'search-movie-container');
     });
-}
+}*/
