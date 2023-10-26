@@ -1,6 +1,11 @@
 .container {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   align-items: center;
+}
+.container p{
+    text-align: center;
 }
 
 .img {
