@@ -17,12 +17,13 @@
     "icons":[
         {
             "src":"../img/film.png",
-            "sizes":"512x512"
+            "sizes":"512x512",
+            "purpose":"any maskable"
         },
         {
             "src":"../img/film.png",
-            "sizes":"192x192"
-            
+            "sizes":"192x192",
+            "purpose":"any maskable"
         }
     ]
 
