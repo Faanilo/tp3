@@ -44,7 +44,7 @@ const cacheFirst = async ({ request, fallbackUrl }) => {
         return responseFromNetwork;
     } catch (error) {
         if (!navigator.onLine) {
-            return fetch(fallbackUrl);
+            return window.location.href= fallbackUrl;
         }
 
         const responseFromCache = await caches.match(fallbackUrl);
@@ -68,7 +68,7 @@ function searchAllMovies(query) {
         })
         .catch((error) => {
             if (!navigator.onLine) {
-                window.location.href = "http://127.0.0.1:8080/error.html"
+                window.location.href = fallbackUrl;
             }
         });
 }
