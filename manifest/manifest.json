@@ -1,30 +1,22 @@
 {
     "lang": "fr-FR",
-    "name":"Movie",
-    "short_name":"mv",
-    "start_url":"/",
+    "name": "Movie",
+    "short_name": "mv",
+    "start_url": "/",  
     "background_color": "#808080",
-    "theme_color":"#808080",
-    "orientation":"natural",
-    "display":"standalone",
-    "prefer_related_applications": true,
-    "related_applications": [
+    "theme_color": "#808080",
+    "orientation": "natural",
+    "display": "standalone",
+    "prefer_related_applications": false,  
+    "icons": [
         {
-            "platform":"play",
-            "id": "movie.test"
-        }
-    ],
-    "icons":[
-        {
-            "src":"../img/film.png",
-            "sizes":"512x512",
-            "purpose":"any maskable"
+            "src": "../img/film.png",  
+            "sizes": "512x512"
         },
         {
-            "src":"../img/film.png",
-            "sizes":"192x192",
-            "purpose":"any maskable"
+            "src": "../img/film.png",   
+            "sizes": "192x192",
+            "purpose": "any maskable"
         }
     ]
-
 }
