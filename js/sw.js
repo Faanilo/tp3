@@ -59,23 +59,3 @@ const cacheFirst = async ({ request, fallbackUrl }) => {
     }
 };
 
-/*function searchAllMovies(query) {
-    const url = `${BaseUrl}/3/search/movie?api_key=${apiKey}&query=${query}`;
-    return fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            return data.results;
-        })
-        .catch((error) => {
-            if (!navigator.onLine) {
-                window.location.href = fallbackUrl;
-            }
-        });
-}
-
-
-function searchAllMoviesAndUpdate(query) {
-    searchAllMovies(query).then((searchResults) => {
-        displayMovies(searchResults, 'search-movie-container');
-    });
-}*/

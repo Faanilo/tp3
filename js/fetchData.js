@@ -88,7 +88,7 @@ function searchMovie(query) {
         })
         .catch((error) => {
             if (!navigator.onLine) {
-                window.location.href="http://127.0.0.1:8080/error.html"
+                window.location.href="https://faniloniaina-ramilison.vercel.app/error.html"
             }
         });
 }

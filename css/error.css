@@ -1,9 +1,14 @@
+.container {
+  text-align: center;
+  align-items: center;
+}
+
 .img {
-    width: 25vh;
-    height: 25vh;
+  width: 25vh;
+  height: 25vh;
 }
 .img img {
-    object-fit: cover;
-    width: 100%;
-    height: auto;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
