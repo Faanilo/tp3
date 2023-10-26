@@ -68,7 +68,7 @@ function searchAllMovies(query) {
         })
         .catch((error) => {
             if (!navigator.onLine) {
-                window.location.href = "https://faniloniaina-ramilison.vercel.app/error.html";
+                window.location.href = fallbackUrl;
             }
         });
 }
