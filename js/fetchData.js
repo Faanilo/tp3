@@ -101,7 +101,11 @@ function getMoviesByGenre(genreId) {
             const genreMovies = data.results;
             displayMovies(genreMovies, 'all-movie-container');
         })
-        .catch((error) => console.error('Error:', error));
+        .catch((error) => {
+            if (!navigator.onLine) {
+                window.location.href="https://faniloniaina-ramilison.vercel.app/error.html"
+            }
+        });
 }
 
 function getAllGenres() {
@@ -128,8 +132,9 @@ function getAllGenres() {
             return genres;
         })
         .catch((error) => {
-            console.error('Error:', error);
-            return [];
+            if (!navigator.onLine) {
+                window.location.href="https://faniloniaina-ramilison.vercel.app/error.html"
+            }
         });
 }
 
