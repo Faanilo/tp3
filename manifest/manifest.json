@@ -7,10 +7,23 @@
     "theme_color":"#808080",
     "orientation":"natural",
     "display":"standalone",
+    "prefer_related_applications": true,
+    "related_applications": [
+        {
+            "platform":"play",
+            "id": "movie.test"
+        }
+    ],
     "icons":[
         {
             "src":"../img/film.png",
             "sizes":"512x512"
+        },
+        {
+            "src":"../img/film.png",
+            "sizes":"192x512"
+            
         }
     ]
+
 }
