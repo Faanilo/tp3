@@ -157,6 +157,6 @@ document.getElementById('prev-page').addEventListener('click', function () {
         displayMoviesByPage(allMovies, 'all-movie-container', currentPage);
     }
 });
-//getAllGenres()
-//getTopMovies();
-//getAllMovies();
+getAllGenres()
+getTopMovies();
+getAllMovies();
