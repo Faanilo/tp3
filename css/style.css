@@ -1,0 +1,239 @@
+body {
+  background-color: #121212;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #121212;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #e50914;
+  font-size: 36px;
+}
+h2 {
+  color: #e50914;
+  font-size: 20px;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#search {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  font-size: 16px;
+}
+
+#search::placeholder {
+  color: #999;
+}
+
+button[type="submit"] {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #c50711;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around;
+  padding: 20px;
+}
+
+
+.movie-card {
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px; 
+  text-align: center;
+  width: 200px; 
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+
+.movie-poster {
+  width: 100%;
+  max-height: 280px; 
+  border-radius: 8px;
+}
+
+.movie-title {
+  font-size: 18px; 
+  font-weight: bold;
+  margin: 5px 0; 
+  color: #fff;
+}
+
+.movie-description {
+  font-size: 12px; 
+  color: #ccc;
+}
+
+button[type="submit"] {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px; 
+  margin-left: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+h1 {
+  color: #e50914;
+  font-size: 30px; 
+}
+
+.movie-card:hover {
+  background-color: #555; 
+}
+/*search movie */
+
+
+/*films search */
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.search-results .movie-card {
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+
+.search-results .movie-poster {
+  width: 100%;
+  max-height: 280px;
+  border-radius: 8px;
+}
+
+.search-results .movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.search-results .movie-description {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.search-results .movie-card:hover {
+  background-color: #555;
+}
+
+/*style option */
+
+#genre-select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  width: 300px;
+  background-color: #333;
+  color: #fff;
+  appearance: none; 
+  cursor: pointer;
+}
+
+#genre-select option {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+}
+
+
+#genre-select::after {
+  content: "\25BC"; 
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  pointer-events: none;
+}
+
+
+#genre-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(229, 9, 20, 0.5); 
+}
+
+/*pagination style*/
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #c50711;
+}
+
+#next-page {
+  background-color: #007bff;
+}
+
+#next-page:hover {
+  background-color: #0056b3;
+}
+
+#prev-page {
+  background-color: #6c757d;
+}
+
+#prev-page:hover {
+  background-color: #545b62;
+}
+
+footer {
+  background-color: #000000;
+  text-align: center;
+  padding: 10px;
+}

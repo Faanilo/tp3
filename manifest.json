@@ -1,0 +1,16 @@
+{
+    "lang": "fr-FR",
+    "name":"Movie",
+    "short_name":"mv",
+    "start_url":"/",
+    "background_color": "#808080",
+    "theme_color":"#808080",
+    "orientation":"natural",
+    "display":"standalone",
+    "icons":[
+        {
+            "src":"./img/film.png",
+            "sizes":"512x512"
+        }
+    ]
+}
