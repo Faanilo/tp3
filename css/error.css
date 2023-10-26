@@ -1,0 +1,9 @@
+.img {
+    width: 25vh;
+    height: 25vh;
+}
+.img img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
