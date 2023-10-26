@@ -159,6 +159,12 @@ h1 {
 }
 
 /*style option */
+.genre-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  height: 100vh; 
+}
 
 #genre-select {
   padding: 10px;
