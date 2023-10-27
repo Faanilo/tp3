@@ -4,7 +4,6 @@ const moviesPerPage = 10;
 let currentPage = 1;
 let allMovies = [];
 
-
 function displayMoviesByPage(movies, containerId, page) {
     const startIndex = (page - 1) * moviesPerPage;
     const endIndex = startIndex + moviesPerPage;

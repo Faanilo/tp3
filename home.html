@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="manifest" href="./manifest/manifest.json" />
+    <title>Movie</title>
+  </head>
+  <body>
+    <header>
+      <h1>Hi there</h1>
+      <form method="GET" action="/search" class="search-form">
+        <input
+          type="text"
+          name="query"
+          id="search"
+          placeholder="Search for movies..."
+        />
+        <button type="submit" id="search-button">Search</button>
+      </form>
+    </header>
+    <div class="genre-filter">
+      <label for="genre-select">Select Genre:</label>
+      <select id="genre-select"></select>
+    </div>
+
+    <div class="container search-results" id="search-movie-container"></div>
+    <section class="top-movies">
+      <h2>List of the top rated films</h2>
+      <div class="container" id="top-movie-container"></div>
+    </section>
+    <section class="all-movies">
+      <h2>List of all films</h2>
+      <div class="container" id="all-movie-container"></div>
+      <div class="pagination">
+        <button id="prev-page">Previous</button>
+        <button id="next-page">Next</button>
+      </div>
+    </section>
+    <footer>&copy; kraken</footer>
+    <script src="./js/fetchData.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./js/sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service Worker enregistré avec succès : ",
+              registration
+            );
+          })
+          .catch(function (error) {
+            console.error("Erreur  : ", error);
+          });
+      }
+    </script>
+  </body>
+</html>

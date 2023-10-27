@@ -3,57 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="manifest" href="./manifest/manifest.json" />
-    <title>Movie</title>
-  </head>
-  <body>
-    <header>
-      <h1>Hi there</h1>
-      <form method="GET" action="/search" class="search-form">
-        <input
-          type="text"
-          name="query"
-          id="search"
-          placeholder="Search for movies..."
-        />
-        <button type="submit" id="search-button">Search</button>
-      </form>
-    </header>
-    <div class="genre-filter">
-      <label for="genre-select">Select Genre:</label>
-      <select id="genre-select"></select>
-    </div>
-
-    <div class="container search-results" id="search-movie-container"></div>
-    <section class="top-movies">
-      <h2>List of the top rated films</h2>
-      <div class="container" id="top-movie-container"></div>
-    </section>
-    <section class="all-movies">
-      <h2>List of all films</h2>
-      <div class="container" id="all-movie-container"></div>
-      <div class="pagination">
-        <button id="prev-page">Previous</button>
-        <button id="next-page">Next</button>
-      </div>
-    </section>
-    <footer>&copy; kraken</footer>
-    <script src="./js/fetchData.js"></script>
+    <link rel="stylesheet" href="./css/login.css" />
     <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("./js/sw.js")
-          .then(function (registration) {
-            console.log(
-              "Service Worker enregistré avec succès : ",
-              registration
+      const apiKey = '77ea88178dd845d483106935bca8413f';
+      let requestToken = null; // Store the request token for later use
+
+      async function createRequestToken() {
+        try {
+          const response = await fetch(
+            `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+          }
+
+          const data = await response.json();
+          requestToken = data.request_token; 
+          console.log('Request token created:', requestToken);
+        } catch (error) {
+          console.error('Failed to create request token:', error);
+        }
+      }
+
+      function askUserForPermission() {
+        // Check if we have a request token
+        if (requestToken) {
+          const redirectURL = 'localhost:8080/home.html'; 
+          const authURL = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${redirectURL}`;
+
+          // Redirect the user to the authorization URL
+          window.location.href = authURL;
+        } else {
+          console.error('Request token is missing. Please create one first.');
+        }
+      }
+
+      async function createSession() {
+        // Check if we have a request token
+        if (requestToken) {
+          const user_name = document.getElementById('user_name').value;
+          const user_password = document.getElementById('user_pass').value;
+
+          try {
+            const response = await fetch(
+              'https://api.themoviedb.org/3/authentication/token/validate_with_login',
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json;charset=utf-8',
+                },
+                body: JSON.stringify({
+                  api_key: apiKey,
+                  request_token: requestToken,
+                  username: user_name,
+                  password: user_password,
+                }),
+              }
             );
-          })
-          .catch(function (error) {
-            console.error("Erreur  : ", error);
-          });
+
+            if (!response.ok) {
+              throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Session created successfully:', data);
+          } catch (error) {
+            console.error('Failed to create session:', error);
+          }
+        } else {
+          console.error('Request token is missing. Please create one first.');
+        }
       }
     </script>
+    <title>Movies</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login</h1>
+      <form action="" method="POST">
+        <label for="user_name">Username</label>
+        <input
+          type="text"
+          class="input"
+          name="_username"
+          autocomplete="off"
+          id="user_name"
+          placeholder="Enter your email"
+        />
+        <label for="user_pass">Password</label>
+        <input
+          type="password"
+          class="input"
+          name="_password"
+          id="user_pass"
+          placeholder="Enter your password"
+        />
+        <button type="button" onclick="createRequestToken()">Create Request Token</button>
+        <button type="button" onclick="askUserForPermission()">Ask User for Permission</button>
+        <button type="button" onclick="createSession()">Create Session</button>
+      </form>
+    </div>
   </body>
 </html>
