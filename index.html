@@ -28,7 +28,7 @@
       function askUserForPermission() {
         // Check if we have a request token
         if (requestToken) {
-          const redirectURL = "localhost:8080/home.html";
+          const redirectURL = "https://faniloniaina-ramilison.vercel.app/home.html";
           const authURL = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${redirectURL}`;
 
           window.location.href = authURL;
@@ -75,25 +75,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Login</h1>
-      <form action="" method="POST">
-        <label for="user_name">Username</label>
-        <input
-          type="text"
-          class="input"
-          name="_username"
-          autocomplete="off"
-          id="user_name"
-          placeholder="Enter your email"
-        />
-        <label for="user_pass">Password</label>
-        <input
-          type="password"
-          class="input"
-          name="_password"
-          id="user_pass"
-          placeholder="Enter your password"
-        />
+     
         <button type="button" onclick="createRequestToken()">
           Create Request Token
         </button>
