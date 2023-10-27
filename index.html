@@ -85,5 +85,20 @@
         <button type="button" onclick="createSession()">Create Session</button>
       </form>
     </div>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./js/sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service Worker enregistré avec succès : ",
+              registration
+            );
+          })
+          .catch(function (error) {
+            console.error("Erreur  : ", error);
+          });
+      }
+    </script>
   </body>
 </html>
