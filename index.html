@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/login.css" />
     <script>
-      const apiKey = '77ea88178dd845d483106935bca8413f';
+      const apiKey = "77ea88178dd845d483106935bca8413f";
       let requestToken = null; // Store the request token for later use
 
       async function createRequestToken() {
@@ -14,50 +14,45 @@
             `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`
           );
 
-          if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`);
+          if (response.ok) {
+            alert("Go check the user list");
+            const data = await response.json();
+            requestToken = data.request_token;
+            console.log("Request token created:", requestToken);
           }
-
-          const data = await response.json();
-          requestToken = data.request_token; 
-          console.log('Request token created:', requestToken);
         } catch (error) {
-          console.error('Failed to create request token:', error);
+          console.error("Failed to create request token:", error);
         }
       }
 
       function askUserForPermission() {
         // Check if we have a request token
         if (requestToken) {
-          const redirectURL = 'localhost:8080/home.html'; 
+          const redirectURL = "localhost:8080/home.html";
           const authURL = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${redirectURL}`;
 
-          // Redirect the user to the authorization URL
           window.location.href = authURL;
         } else {
-          console.error('Request token is missing. Please create one first.');
+          console.error("Request token is missing. Please create one first.");
         }
       }
 
       async function createSession() {
-        // Check if we have a request token
         if (requestToken) {
-          const user_name = document.getElementById('user_name').value;
-          const user_password = document.getElementById('user_pass').value;
+          const user_name = document.getElementById("user_name").value;
+          const user_password = document.getElementById("user_pass").value;
 
           try {
             const response = await fetch(
-              'https://api.themoviedb.org/3/authentication/token/validate_with_login',
+              "https://api.themoviedb.org/3/authentication/token/validate_with_login",
               {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                  'Content-Type': 'application/json;charset=utf-8',
+                  "Content-Type": "application/json;charset=utf-8",
                 },
                 body: JSON.stringify({
                   api_key: apiKey,
                   request_token: requestToken,
-                  username: user_name,
-                  password: user_password,
                 }),
               }
             );
@@ -67,12 +62,12 @@
             }
 
             const data = await response.json();
-            console.log('Session created successfully:', data);
+            console.log("Session created successfully:", data);
           } catch (error) {
-            console.error('Failed to create session:', error);
+            console.error("Failed to create session:", error);
           }
         } else {
-          console.error('Request token is missing. Please create one first.');
+          console.error("Request token is missing. Please create one first.");
         }
       }
     </script>
@@ -99,8 +94,12 @@
           id="user_pass"
           placeholder="Enter your password"
         />
-        <button type="button" onclick="createRequestToken()">Create Request Token</button>
-        <button type="button" onclick="askUserForPermission()">Ask User for Permission</button>
+        <button type="button" onclick="createRequestToken()">
+          Create Request Token
+        </button>
+        <button type="button" onclick="askUserForPermission()">
+          Ask User for Permission
+        </button>
         <button type="button" onclick="createSession()">Create Session</button>
       </form>
     </div>
