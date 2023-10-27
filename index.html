@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/login.css" />
     <script>
       const apiKey = "77ea88178dd845d483106935bca8413f";
-      let requestToken = null; // Store the request token for later use
+      let requestToken = null; 
 
       async function createRequestToken() {
         try {
@@ -15,7 +15,7 @@
           );
 
           if (response.ok) {
-            alert("Go check the user list");
+            alert("Go check log to ur account");
             const data = await response.json();
             requestToken = data.request_token;
             console.log("Request token created:", requestToken);
@@ -26,21 +26,20 @@
       }
 
       function askUserForPermission() {
-        // Check if we have a request token
+        
         if (requestToken) {
           const redirectURL = "https://faniloniaina-ramilison.vercel.app/home.html";
           const authURL = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${redirectURL}`;
-
+          
           window.location.href = authURL;
         } else {
           console.error("Request token is missing. Please create one first.");
+          alert("Create token first")
         }
       }
 
       async function createSession() {
         if (requestToken) {
-          const user_name = document.getElementById("user_name").value;
-          const user_password = document.getElementById("user_pass").value;
 
           try {
             const response = await fetch(
@@ -68,6 +67,7 @@
           }
         } else {
           console.error("Request token is missing. Please create one first.");
+          alert("Create token first")
         }
       }
     </script>
