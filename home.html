@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="manifest" href="./manifest/manifest.json" />
     <title>Movie</title>
   </head>
   <body>
@@ -40,20 +39,5 @@
     </section>
     <footer>&copy; kraken</footer>
     <script src="./js/fetchData.js"></script>
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("./js/sw.js")
-          .then(function (registration) {
-            console.log(
-              "Service Worker enregistré avec succès : ",
-              registration
-            );
-          })
-          .catch(function (error) {
-            console.error("Erreur  : ", error);
-          });
-      }
-    </script>
   </body>
 </html>
