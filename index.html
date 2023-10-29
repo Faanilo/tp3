@@ -9,24 +9,7 @@
       const apiKey = "77ea88178dd845d483106935bca8413f";
       let requestToken = null; 
 
-      async function createRequestToken() {
-        try {
-          const response = await fetch(
-            `https://api.themoviedb.org/3/authentication/token/new?api_key=${apiKey}`
-          );
-
-          if (response.ok) {
-            alert("Go check log to ur account");
-            const data = await response.json();
-            requestToken = data.request_token;
-            console.log("Request token created:", requestToken);
-          }
-        } catch (error) {
-          console.error("Failed to create request token:", error);
-        }
-      }
-
-      function askUserForPermission() {
+           function askUserForPermission() {
         
         if (requestToken) {
           const redirectURL = "https://faniloniaina-ramilison.vercel.app/home.html";
@@ -83,7 +66,6 @@
         <button type="button" onclick="askUserForPermission()">
           Ask User for Permission
         </button>
-        <button type="button" onclick="createSession()">Create Session</button>
       </form>
     </div>
     <script>
