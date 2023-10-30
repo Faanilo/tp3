@@ -16,10 +16,12 @@
           );
 
           if (response.ok) {
-            alert("Go check and log to ur account");
+            alert("Go check and log in to your account");
             const data = await response.json();
             requestToken = data.request_token;
             console.log("Request token created:", requestToken);
+            // Show the "Ask User for Permission" button after obtaining the request token
+            document.getElementById("askPermissionButton").style.display = "block";
           }
         } catch (error) {
           console.error("Failed to create request token:", error);
@@ -45,14 +47,13 @@
   </head>
   <body>
     <div class="container">
-     
-        <button type="button" onclick="createRequestToken()">
-          Create Request Token
-        </button>
-        <button type="button" onclick="askUserForPermission()">
-          Ask User for Permission
-        </button>
-      </form>
+      <button type="button" onclick="createRequestToken()">
+        Create Request Token
+      </button>
+      <!-- Button for asking user permission, initially hidden -->
+      <button id="askPermissionButton" type="button" style="display: none;" onclick="askUserForPermission()">
+        Ask User for Permission
+      </button>
     </div>
     <script>
       if ("serviceWorker" in navigator) {
